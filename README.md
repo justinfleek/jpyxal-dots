@@ -9,20 +9,59 @@
     ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝
 ```
 
-A fully riced NixOS Home Manager configuration featuring:
+**THE KITCHEN SINK** - A fully riced NixOS Home Manager configuration with EVERYTHING.
 
-| Component                            | Description                                      | Docs                                 |
-| ------------------------------------ | ------------------------------------------------ | ------------------------------------ |
-| [Hyprland](modules/docs/HYPRLAND.md) | Tiling Wayland compositor with smooth animations | [Keybinds](modules/docs/HYPRLAND.md) |
-| [Waybar](modules/docs/WAYBAR.md)     | Status bar with glassmorphism styling            | [Modules](modules/docs/WAYBAR.md)    |
-| [Ghostty](modules/docs/GHOSTTY.md)   | GPU-accelerated terminal                         | [Keybinds](modules/docs/GHOSTTY.md)  |
-| [Neovim](modules/docs/NEOVIM.md)     | LazyVim-based IDE experience                     | [Keybinds](modules/docs/NEOVIM.md)   |
-| [Tmux](modules/docs/TMUX.md)         | Terminal multiplexer                             | [Keybinds](modules/docs/TMUX.md)     |
-| [Shell](modules/docs/SHELL.md)       | Bash + Starship + Atuin                          | [Aliases](modules/docs/SHELL.md)     |
-| [Rofi](modules/docs/ROFI.md)         | Application launcher                             | [Usage](modules/docs/ROFI.md)        |
-| [Dunst](modules/docs/DUNST.md)       | Notification daemon                              | [Config](modules/docs/DUNST.md)      |
-| Firefox                              | Riced browser with userChrome                    | -                                    |
-| Catppuccin Mocha                     | Unified theming everywhere                       | -                                    |
+### Core Desktop
+
+| Component | Description | Docs |
+|-----------|-------------|------|
+| [Hyprland](modules/docs/HYPRLAND.md) | Tiling Wayland compositor | [Keybinds](modules/docs/HYPRLAND.md) |
+| [Waybar](modules/docs/WAYBAR.md) | Glassmorphism status bar | [Modules](modules/docs/WAYBAR.md) |
+| [EWW](modules/eww.nix) | Desktop widgets | - |
+| [Rofi](modules/docs/ROFI.md) | App launcher | [Usage](modules/docs/ROFI.md) |
+| [Dunst](modules/docs/DUNST.md) | Notifications | [Config](modules/docs/DUNST.md) |
+
+### Terminal & Shell
+
+| Component | Description | Docs |
+|-----------|-------------|------|
+| [Ghostty](modules/docs/GHOSTTY.md) | GPU-accelerated terminal | [Keybinds](modules/docs/GHOSTTY.md) |
+| [Tmux](modules/docs/TMUX.md) | Terminal multiplexer | [Keybinds](modules/docs/TMUX.md) |
+| [Shell](modules/docs/SHELL.md) | Bash + Starship + Atuin | [Aliases](modules/docs/SHELL.md) |
+
+### Development
+
+| Component | Description |
+|-----------|-------------|
+| [Neovim](modules/docs/NEOVIM.md) | LazyVim IDE with LSPs |
+| [Dev Tools](modules/dev.nix) | Rust, Go, Python, Node, Zig, Haskell |
+| [Containers](modules/containers.nix) | Docker, Podman, K8s, Distrobox |
+| [Git](modules/git.nix) | Git + Lazygit + Delta + gh |
+
+### Apps & Media
+
+| Component | Description |
+|-----------|-------------|
+| Firefox | Riced browser with userChrome |
+| [Spicetify](modules/spicetify.nix) | Themed Spotify |
+| [Music](modules/music.nix) | MPD + ncmpcpp + cava visualizer |
+| [Gaming](modules/gaming.nix) | Steam, Lutris, MangoHud, Gamemode |
+| [Productivity](modules/productivity.nix) | Obsidian, Zathura, Calcurse |
+
+### Communication
+
+| Component | Description |
+|-----------|-------------|
+| [Chat](modules/chat.nix) | Discord (Vesktop), Matrix, IRC |
+| [Email](modules/email.nix) | Aerc, Himalaya |
+
+### Theming
+
+| Component | Description |
+|-----------|-------------|
+| Catppuccin Mocha | Unified theme EVERYWHERE |
+| GTK/QT | Matching system theme |
+| Cursors & Icons | Catppuccin cursors + Papirus |
 
 ## Prerequisites
 

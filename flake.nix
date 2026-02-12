@@ -88,9 +88,13 @@
         
         modules = [
           catppuccin.homeManagerModules.catppuccin
+          
+          # Core
           ./home.nix
           ./modules/hyprland.nix
+          ./modules/hyprland-extras.nix
           ./modules/waybar.nix
+          ./modules/eww.nix
           ./modules/ghostty.nix
           ./modules/neovim.nix
           ./modules/shell.nix
@@ -100,6 +104,16 @@
           ./modules/firefox.nix
           ./modules/git.nix
           ./modules/tools.nix
+          
+          # Extended
+          ./modules/spicetify.nix
+          ./modules/gaming.nix
+          ./modules/containers.nix
+          ./modules/music.nix
+          ./modules/email.nix
+          ./modules/chat.nix
+          ./modules/productivity.nix
+          ./modules/dev.nix
         ];
       };
       
