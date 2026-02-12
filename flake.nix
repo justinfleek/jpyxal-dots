@@ -59,6 +59,17 @@
 
     # Opencode
     opencode.url = "github:anomalyco/opencode";
+    
+    # Lean 4
+    lean4 = {
+      url = "github:leanprover/lean4";
+    };
+    
+    # PureScript overlay
+    purescript-overlay = {
+      url = "github:thomashoneyman/purescript-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, catppuccin, nix-colors, ... }@inputs:
@@ -69,8 +80,10 @@
         config.allowUnfree = true;
         overlays = [
           inputs.opencode.overlays.default
+          inputs.purescript-overlay.overlays.default
           (final: prev: {
             ghostty = inputs.ghostty.packages.${system}.default;
+            lean4 = inputs.lean4.packages.${system}.default;
           })
         ];
       };
@@ -114,6 +127,10 @@
           ./modules/chat.nix
           ./modules/productivity.nix
           ./modules/dev.nix
+          
+          # Workspace
+          ./modules/workspace.nix
+          ./modules/opencode-workspace.nix
         ];
       };
       

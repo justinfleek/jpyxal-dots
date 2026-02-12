@@ -63,6 +63,40 @@
 | GTK/QT | Matching system theme |
 | Cursors & Icons | Catppuccin cursors + Papirus |
 
+### Workspace (Your Stack)
+
+| Component | Description |
+|-----------|-------------|
+| [OpenCode](https://opencode.ai) | AI coding assistant |
+| Dhall | Programmable configuration |
+| PureScript/Halogen | Functional frontend |
+| Lean 4 | Theorem prover |
+| Tailscale | Mesh VPN |
+
+## One-Liner Install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/justinfleek/home-manager/main/install.sh | bash
+```
+
+### With Workspace Setup (clones your repos)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/justinfleek/home-manager/main/install.sh | bash -s -- --workspace
+```
+
+This will:
+1. Install home-manager config
+2. Clone your repos to `~/workspace`:
+   - sensenet
+   - nvidia-sdk
+   - nix-compile
+   - slide
+   - isospin-microvm
+   - omega-agentic
+3. Configure OpenCode for the workspace
+4. Set up Tailscale
+
 ## Prerequisites
 
 1. NixOS with flakes enabled
