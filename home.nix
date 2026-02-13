@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-bun,
   lib,
   inputs,
   username,
@@ -94,7 +95,7 @@
     ncdu
 
     # === DEVELOPMENT ===
-    # opencode         # Temporarily disabled - requires bun 1.3.9+ (nixpkgs has 1.3.8)
+    pkgs-bun.bun # opencode         # Temporarily disabled - requires bun 1.3.9+ (nixpkgs has 1.3.8)
     git
     gh
     lazygit

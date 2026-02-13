@@ -2,6 +2,7 @@
   description = "j-pyxal dots - the kitchen sink, riced to perfection";
 
   inputs = {
+    nixpkgs-bun.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -73,12 +74,14 @@
     {
       self,
       nixpkgs,
+      nixpkgs-bun,
       home-manager,
       catppuccin,
       nix-colors,
       ...
     }@inputs:
     let
+      pkgs-bun = nixpkgs-bun.legacyPackages.${system};
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -102,6 +105,7 @@
         inherit pkgs;
 
         extraSpecialArgs = {
+          inherit pkgs-bun;
           inherit inputs username nix-colors;
         };
 
