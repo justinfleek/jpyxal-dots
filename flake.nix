@@ -131,6 +131,9 @@
           # Workspace
           ./modules/workspace.nix
           ./modules/opencode-workspace.nix
+          
+          # Themes (PRISM + Cursor + hypermodern-emacs)
+          ./modules/prism-themes.nix
         ];
       };
       

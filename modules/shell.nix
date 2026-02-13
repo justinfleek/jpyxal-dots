@@ -123,6 +123,14 @@
       tl = "tmux list-sessions";
       tn = "tmux new -s";
       tk = "tmux kill-session -t";
+      
+      # === PRISM THEMES ===
+      prism = "prism-setup";
+      themes = "theme-switch";
+      hme = "hypermodern-emacs-setup";
+      
+      # === CURSOR ===
+      cursor-update = "cursor-install";
     };
 
     initExtra = ''
