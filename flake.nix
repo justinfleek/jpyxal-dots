@@ -1,5 +1,5 @@
 {
-  description = "Hypermodern Home Manager - riced to perfection";
+  description = "j-pyxal dots - the kitchen sink, riced to perfection";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -134,6 +134,54 @@
           
           # Themes (PRISM + Cursor + hypermodern-emacs)
           ./modules/prism-themes.nix
+          
+          # Extra terminals and shells
+          ./modules/terminals.nix
+          ./modules/nushell.nix
+          
+          # Extra editors
+          ./modules/editors-extra.nix
+          
+          # File managers
+          ./modules/file-managers.nix
+          
+          # Research & academic
+          ./modules/research.nix
+          
+          # Sync & backup
+          ./modules/sync.nix
+          
+          # Widgets (AGS/Aylur-style)
+          ./modules/ags.nix
+          ./modules/hyprpanel.nix
+          
+          # Browsers
+          ./modules/browsers.nix
+          
+          # API tools
+          ./modules/api-tools.nix
+          
+          # Containers extra
+          ./modules/containers-extra.nix
+          
+          # AI - Local (Ollama, Open WebUI)
+          ./modules/ai-local.nix
+          
+          # AI - Coding (Aider, Continue)
+          ./modules/ai-coding.nix
+          
+          # ComfyUI with fxy custom nodes
+          ./modules/comfyui.nix
+          
+          # Speech (Whisper, TTS)
+          ./modules/speech.nix
+          
+          # NVIDIA/GPU
+          ./modules/nvidia.nix
+          
+          # Alternative WMs (optional - uncomment to use)
+          # ./modules/sway.nix
+          # ./modules/niri.nix
         ];
       };
       

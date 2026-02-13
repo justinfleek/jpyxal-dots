@@ -1,376 +1,316 @@
-# Hypermodern Home Manager
+# j-pyxal dots
 
 ```
-    ██╗  ██╗██╗   ██╗██████╗ ███████╗██████╗ ███╗   ███╗ ██████╗ ██████╗ ███████╗██████╗ ███╗   ██╗
-    ██║  ██║╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗████╗ ████║██╔═══██╗██╔══██╗██╔════╝██╔══██╗████╗  ██║
-    ███████║ ╚████╔╝ ██████╔╝█████╗  ██████╔╝██╔████╔██║██║   ██║██║  ██║█████╗  ██████╔╝██╔██╗ ██║
-    ██╔══██║  ╚██╔╝  ██╔═══╝ ██╔══╝  ██╔══██╗██║╚██╔╝██║██║   ██║██║  ██║██╔══╝  ██╔══██╗██║╚██╗██║
-    ██║  ██║   ██║   ██║     ███████╗██║  ██║██║ ╚═╝ ██║╚██████╔╝██████╔╝███████╗██║  ██║██║ ╚████║
-    ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝
+       ██╗      ██████╗ ██╗   ██╗██╗  ██╗ █████╗ ██╗
+       ██║      ██╔══██╗╚██╗ ██╔╝╚██╗██╔╝██╔══██╗██║
+       ██║█████╗██████╔╝ ╚████╔╝  ╚███╔╝ ███████║██║
+  ██   ██║╚════╝██╔═══╝   ╚██╔╝   ██╔██╗ ██╔══██║██║
+  ╚█████╔╝      ██║        ██║   ██╔╝ ██╗██║  ██║███████╗
+   ╚════╝       ╚═╝        ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
 ```
 
 **THE KITCHEN SINK** - A fully riced NixOS Home Manager configuration with EVERYTHING.
 
-### Core Desktop
+Catppuccin Mocha + Hyprland + vim joyer vibes + AI/ML stack + ComfyUI + the works.
 
-| Component | Description | Docs |
-|-----------|-------------|------|
-| [Hyprland](modules/docs/HYPRLAND.md) | Tiling Wayland compositor | [Keybinds](modules/docs/HYPRLAND.md) |
-| [Waybar](modules/docs/WAYBAR.md) | Glassmorphism status bar | [Modules](modules/docs/WAYBAR.md) |
-| [EWW](modules/eww.nix) | Desktop widgets | - |
-| [Rofi](modules/docs/ROFI.md) | App launcher | [Usage](modules/docs/ROFI.md) |
-| [Dunst](modules/docs/DUNST.md) | Notifications | [Config](modules/docs/DUNST.md) |
-
-### Terminal & Shell
-
-| Component | Description | Docs |
-|-----------|-------------|------|
-| [Ghostty](modules/docs/GHOSTTY.md) | GPU-accelerated terminal | [Keybinds](modules/docs/GHOSTTY.md) |
-| [Tmux](modules/docs/TMUX.md) | Terminal multiplexer | [Keybinds](modules/docs/TMUX.md) |
-| [Shell](modules/docs/SHELL.md) | Bash + Starship + Atuin | [Aliases](modules/docs/SHELL.md) |
-
-### Development
-
-| Component | Description |
-|-----------|-------------|
-| [Neovim](modules/docs/NEOVIM.md) | LazyVim IDE with LSPs |
-| [Dev Tools](modules/dev.nix) | Rust, Go, Python, Node, Zig, Haskell |
-| [Containers](modules/containers.nix) | Docker, Podman, K8s, Distrobox |
-| [Git](modules/git.nix) | Git + Lazygit + Delta + gh |
-
-### Apps & Media
-
-| Component | Description |
-|-----------|-------------|
-| Firefox | Riced browser with userChrome |
-| [Spicetify](modules/spicetify.nix) | Themed Spotify |
-| [Music](modules/music.nix) | MPD + ncmpcpp + cava visualizer |
-| [Gaming](modules/gaming.nix) | Steam, Lutris, MangoHud, Gamemode |
-| [Productivity](modules/productivity.nix) | Obsidian, Zathura, Calcurse |
-
-### Communication
-
-| Component | Description |
-|-----------|-------------|
-| [Chat](modules/chat.nix) | Discord (Vesktop), Matrix, IRC |
-| [Email](modules/email.nix) | Aerc, Himalaya |
-
-### Theming
-
-| Component | Description |
-|-----------|-------------|
-| Catppuccin Mocha | Unified theme EVERYWHERE |
-| GTK/QT | Matching system theme |
-| Cursors & Icons | Catppuccin cursors + Papirus |
-
-### Workspace (Your Stack)
-
-| Component | Description |
-|-----------|-------------|
-| [OpenCode](https://opencode.ai) | AI coding assistant |
-| Dhall | Programmable configuration |
-| PureScript/Halogen | Functional frontend |
-| Lean 4 | Theorem prover |
-| Tailscale | Mesh VPN |
-
-## One-Liner Install
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/justinfleek/home-manager/main/install.sh | bash
-```
-
-### With Workspace Setup (clones your repos)
+## Quick Install
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/justinfleek/home-manager/main/install.sh | bash -s -- --workspace
 ```
 
-This will:
-1. Install home-manager config
-2. Clone your repos to `~/workspace`:
-   - sensenet
-   - nvidia-sdk
-   - nix-compile
-   - slide
-   - isospin-microvm
-   - omega-agentic
-3. Configure OpenCode for the workspace
-4. Set up Tailscale
+## What's Included
 
-## Prerequisites
+### Core Desktop
 
-1. NixOS with flakes enabled
-2. Add to your `/etc/nixos/configuration.nix`:
+| Component | Description |
+|-----------|-------------|
+| **Hyprland** | Tiling Wayland compositor with animations |
+| **Sway** | Alternative i3-compatible WM |
+| **Niri** | Scrollable tiling WM |
+| **Waybar** | Glassmorphism status bar |
+| **AGS** | Aylur-style GTK widgets |
+| **HyprPanel** | Modern panel for Hyprland |
+| **Rofi** | App launcher |
+| **Dunst/Mako** | Notifications |
 
-```nix
-{
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+### Terminals & Shells
 
-  # For Hyprland
-  programs.hyprland.enable = true;
+| Component | Description |
+|-----------|-------------|
+| **Ghostty** | GPU-accelerated terminal |
+| **Wezterm** | Lua-configurable GPU terminal |
+| **Zellij** | Modern tmux alternative |
+| **Rio** | Rust WebGPU terminal |
+| **Bash** | With Starship + Atuin |
+| **Nushell** | Structured data shell |
 
-  # Required system packages
-  environment.systemPackages = with pkgs; [
-    git
-    wget
-    curl
-  ];
+### Editors
 
-  # Audio (pipewire)
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
+| Component | Description |
+|-----------|-------------|
+| **Neovim** | LazyVim IDE with full LSP |
+| **Neovide** | GPU Neovim GUI with animations |
+| **Helix** | Post-modern modal editor |
+| **Emacs** | hypermodern-emacs setup |
+| **VS Code** | VSCodium with PRISM themes |
+| **Cursor** | AI-first code editor |
 
-  # Fonts
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    inter
-  ];
-}
-```
+### File Managers
 
-## Quick Start
+| Component | Description |
+|-----------|-------------|
+| **Yazi** | Fast rust file manager |
+| **LF** | Minimal Go file manager |
+| **Ranger** | Classic Python file manager |
+| **Superfile** | Modern TUI file manager |
 
-1. **Clone this config:**
+### AI/ML Stack
 
-```bash
-cd ~/.config
-git clone <this-repo> home-manager
-cd home-manager
-```
+| Component | Description |
+|-----------|-------------|
+| **Ollama** | Local LLM runtime |
+| **Open WebUI** | Web interface for LLMs |
+| **ComfyUI** | Stable Diffusion workflows with fxy custom nodes |
+| **Aider** | AI pair programming |
+| **OpenCode** | AI coding assistant |
+| **Whisper** | Speech-to-text |
+| **Piper TTS** | Text-to-speech |
 
-2. **Edit your username:**
+### ComfyUI Custom Nodes
 
-Open `flake.nix` and change:
+50+ custom nodes from the fxy infrastructure:
 
-```nix
-username = "justin"; # Change to your username
-```
+- **Core**: Impact Pack, KJNodes, Essentials, WAS Suite
+- **Video**: WanVideoWrapper, Steerable Motion, GIMM-VFI
+- **Image**: Florence2, DepthAnythingV2, SAM3, RMBG
+- **Performance**: GGUF, bitsandbytes NF4, TensorRT
+- **Audio**: MMAudio, Audio Separation
+- And many more...
 
-3. **Build and activate:**
+### Development
 
-```bash
-# First time setup
-nix run nixpkgs#home-manager -- switch --flake .#$(whoami)
+| Component | Description |
+|-----------|-------------|
+| **Languages** | Rust, Go, Python, Node, Zig, Haskell, Dhall, PureScript, Lean4 |
+| **Containers** | Docker, Podman, K8s, Lazydocker, K9s |
+| **Git** | Lazygit, Delta, gh CLI |
+| **API Tools** | Posting, HTTPie, Hurl |
 
-# After first run
-home-manager switch --flake .#$(whoami)
-```
+### GPU/NVIDIA
 
-4. **Reboot and login to Hyprland**
+| Component | Description |
+|-----------|-------------|
+| **CUDA** | Full CUDA 12/13 support |
+| **cuDNN** | Deep learning libraries |
+| **nvtop/nvitop** | GPU monitoring |
+| **PyTorch** | With CUDA acceleration |
+| **TensorRT** | Inference optimization |
+
+### Apps & Media
+
+| Component | Description |
+|-----------|-------------|
+| **Firefox** | Riced with userChrome |
+| **Zen Browser** | Privacy Firefox fork |
+| **Brave/Vivaldi** | Alternative browsers |
+| **Qutebrowser** | Vim-style browser |
+| **Spicetify** | Themed Spotify |
+| **MPD/ncmpcpp** | Music player + visualizer |
+| **Sioyek** | Research PDF viewer |
+| **Zotero** | Citation manager |
+
+### Productivity
+
+| Component | Description |
+|-----------|-------------|
+| **Obsidian** | Knowledge management |
+| **Syncthing** | P2P file sync |
+| **Restic/Borg** | Backups |
+| **Calcurse** | Calendar |
+
+### Communication
+
+| Component | Description |
+|-----------|-------------|
+| **Vesktop** | Discord client |
+| **iamb** | Matrix TUI |
+| **Weechat** | IRC |
+| **Aerc** | Email |
 
 ## File Structure
 
 ```
 .
-├── flake.nix           # Flake definition with all inputs
-├── home.nix            # Main config with packages and settings
-├── README.md           # You are here
+├── flake.nix                    # Main flake with all inputs
+├── home.nix                     # Core home config
+├── install.sh                   # curl | bash installer
 └── modules/
-    ├── hyprland.nix    # Window manager + lock screen + idle
-    ├── waybar.nix      # Status bar
-    ├── ghostty.nix     # Terminal
-    ├── neovim.nix      # Editor (LazyVim)
-    ├── shell.nix       # Bash + Starship + Atuin
-    ├── tmux.nix        # Terminal multiplexer
-    ├── rofi.nix        # App launcher
-    ├── dunst.nix       # Notifications
-    ├── firefox.nix     # Browser
-    ├── git.nix         # Git + GitHub CLI
-    ├── tools.nix       # Additional utilities
-    └── docs/           # Detailed documentation
-        ├── HYPRLAND.md # Window manager keybinds
-        ├── WAYBAR.md   # Status bar modules
-        ├── GHOSTTY.md  # Terminal keybinds
-        ├── NEOVIM.md   # Editor keybinds (LazyVim)
-        ├── TMUX.md     # Multiplexer keybinds
-        ├── SHELL.md    # Shell aliases & functions
-        ├── ROFI.md     # Launcher usage
-        └── DUNST.md    # Notification config
+    ├── hyprland.nix             # Window manager
+    ├── sway.nix                 # Alternative WM
+    ├── niri.nix                 # Scrollable tiling WM
+    ├── waybar.nix               # Status bar
+    ├── ags.nix                  # GTK widgets (Aylur-style)
+    ├── hyprpanel.nix            # Modern panel
+    ├── terminals.nix            # Zellij, Wezterm, Rio
+    ├── ghostty.nix              # Primary terminal
+    ├── nushell.nix              # Modern shell
+    ├── shell.nix                # Bash + Starship + Atuin
+    ├── neovim.nix               # Editor (LazyVim)
+    ├── editors-extra.nix        # Helix, Neovide
+    ├── file-managers.nix        # LF, Ranger, Superfile, Yazi
+    ├── ai-local.nix             # Ollama, Open WebUI
+    ├── ai-coding.nix            # Aider, Continue
+    ├── comfyui.nix              # ComfyUI with fxy nodes
+    ├── speech.nix               # Whisper, TTS
+    ├── nvidia.nix               # GPU tools, CUDA
+    ├── browsers.nix             # Zen, Vivaldi, Brave, Qutebrowser
+    ├── containers.nix           # Docker, Podman
+    ├── containers-extra.nix     # Lazydocker, K9s
+    ├── research.nix             # Sioyek, Zotero
+    ├── sync.nix                 # Syncthing, backups
+    ├── prism-themes.nix         # PRISM themes for all editors
+    ├── workspace.nix            # Dhall, PureScript, Lean4
+    └── opencode-workspace.nix   # Multi-repo OpenCode config
 ```
 
 ## Keybindings
 
 ### Hyprland
 
-| Key                       | Action                   |
-| ------------------------- | ------------------------ |
-| `Super + Return`          | Terminal (Ghostty)       |
-| `Super + Space`           | App launcher (Rofi)      |
-| `Super + B`               | Browser (Firefox)        |
-| `Super + E`               | File manager             |
-| `Super + Q`               | Close window             |
-| `Super + F`               | Fullscreen               |
-| `Super + T`               | Toggle floating          |
-| `Super + H/J/K/L`         | Focus left/down/up/right |
-| `Super + Shift + H/J/K/L` | Move window              |
-| `Super + 1-9`             | Switch workspace         |
-| `Super + Shift + 1-9`     | Move to workspace        |
-| `Super + V`               | Clipboard history        |
-| `Print`                   | Screenshot area          |
-| `Shift + Print`           | Screenshot fullscreen    |
-| `Super + Shift + Escape`  | Lock screen              |
-| `Super + Escape`          | Power menu               |
+| Key | Action |
+|-----|--------|
+| `Super + Return` | Terminal (Ghostty) |
+| `Super + Space` | App launcher (Rofi) |
+| `Super + Q` | Close window |
+| `Super + F` | Fullscreen |
+| `Super + H/J/K/L` | Focus vim-style |
+| `Super + Shift + H/J/K/L` | Move window |
+| `Super + 1-9` | Workspaces |
+| `Super + V` | Clipboard history |
+| `Print` | Screenshot |
+| `Super + Escape` | Power menu |
 
-### Tmux
-
-| Key                | Action                     |
-| ------------------ | -------------------------- |
-| `Ctrl + A`         | Prefix (instead of Ctrl+B) |
-| `Prefix + \|`      | Split horizontal           |
-| `Prefix + -`       | Split vertical             |
-| `Prefix + h/j/k/l` | Navigate panes             |
-| `Prefix + H/J/K/L` | Resize panes               |
-| `Prefix + c`       | New window                 |
-| `Prefix + ,`       | Rename window              |
-| `Alt + G`          | Popup lazygit              |
-| `Alt + T`          | Popup btop                 |
-
-### Neovim
-
-Standard LazyVim keybindings plus:
-
-| Key          | Action              |
-| ------------ | ------------------- |
-| `Space`      | Leader key          |
-| `jk` / `kj`  | Escape              |
-| `Space + e`  | File explorer       |
-| `Space + ff` | Find files          |
-| `Space + fg` | Live grep           |
-| `Space + l`  | Lazy plugin manager |
-
-## Shell Aliases
+### Shell Aliases
 
 ```bash
+# AI
+chat           # Chat with local LLM
+code-ai        # Code generation
+comfy          # Run ComfyUI
+oc             # OpenCode
+
 # Navigation
-..     # cd ..
-...    # cd ../..
-
-# Listing (eza)
-ls     # Icons + directories first
-ll     # Long list
-la     # Show hidden
-lt     # Tree view
-
-# Git
-g      # git
-gs     # status
-ga     # add
-gc     # commit
-gp     # push
-lg     # lazygit
+lg             # Lazygit
+fm             # Yazi file manager
+lzd            # Lazydocker
+k9             # K9s
 
 # Nix
-nrs    # nixos-rebuild switch
-hms    # home-manager switch
-nfu    # nix flake update
-
-# Utils
-v      # nvim
-c      # clear
-ff     # fastfetch
+hms            # home-manager switch
+nfu            # nix flake update
 ```
 
-## Shell Functions
+## ComfyUI Setup
+
+The config integrates with [weyl-ai/nixified-ai-flake](https://github.com/weyl-ai/nixified-ai-flake) for Nix-native ComfyUI with GPU support.
 
 ```bash
-mkcd <dir>      # Create and cd into directory
-extract <file>  # Extract any archive
-fcd             # Fuzzy cd with fzf
-fe              # Fuzzy edit with fzf
-fkill           # Fuzzy kill process
-fbr             # Fuzzy git branch switch
-serve [port]    # Quick HTTP server
-note [name]     # Quick notes
+# Setup ComfyUI with fxy infrastructure
+comfy-setup
+
+# Run ComfyUI
+comfy
+
+# Download models
+comfy-dl
+
+# Check custom nodes
+comfy-nodes
 ```
 
-## Customization
+### NixOS Service
 
-### Change Colorscheme
-
-The config uses Catppuccin Mocha. To switch flavors, edit `home.nix`:
+For NixOS systems, add to your configuration:
 
 ```nix
-catppuccin = {
-  enable = true;
-  flavor = "mocha";  # latte, frappe, macchiato, mocha
-  accent = "mauve";  # rosewater, flamingo, pink, mauve, red, maroon, peach, yellow, green, teal, sky, sapphire, blue, lavender
-};
+{ inputs, ... }: {
+  imports = [ inputs.nixified-ai.nixosModules.comfyui ];
+  
+  services.comfyui = {
+    enable = true;
+    acceleration = "cuda";
+    customNodes = with pkgs.comfyuiCustomNodes; [
+      comfyui-impact-pack
+      comfyui-kjnodes
+      comfyui-essentials
+      # ... see modules/comfyui.nix for full list
+    ];
+  };
+}
 ```
 
-### Add Wallpapers
+## Theming
 
-Put wallpapers in `~/.local/share/wallpapers/` then press `Super + W` to cycle.
+- **Colorscheme**: Catppuccin Mocha everywhere
+- **PRISM Themes**: 64 curated themes for all editors
+- **GTK/QT**: Matching system themes
+- **Cursors**: Catppuccin cursors
+- **Icons**: Papirus Dark
 
-### Add Firefox Extensions
+Switch themes:
+```bash
+prism          # Setup PRISM themes
+themes         # Switch color theme
+```
 
-Uncomment and edit the extensions section in `modules/firefox.nix`.
+## Prerequisites
 
-### Adjust Monitors
-
-Edit the monitor section in `modules/hyprland.nix`:
+1. NixOS with flakes enabled
+2. NVIDIA GPU (for AI/ML features)
+3. Add to `/etc/nixos/configuration.nix`:
 
 ```nix
-monitor = [
-  "DP-1,2560x1440@144,0x0,1"
-  "HDMI-A-1,1920x1080@60,2560x0,1"
-];
+{
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  programs.hyprland.enable = true;
+  
+  # For NVIDIA
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+  services.xserver.videoDrivers = [ "nvidia" ];
+  
+  # Audio
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
+}
 ```
-
-Use `hyprctl monitors` to find your monitor names.
 
 ## Updating
 
 ```bash
 cd ~/.config/home-manager
-
-# Update all flake inputs
 nix flake update
-
-# Rebuild
 home-manager switch --flake .#$(whoami)
-```
-
-## Troubleshooting
-
-### Fonts not showing correctly
-
-```bash
-fc-cache -fv
-```
-
-### Hyprland not starting
-
-Check logs:
-
-```bash
-cat ~/.local/share/hyprland/hyprland.log
-```
-
-### Neovim plugins not installing
-
-Open neovim and run `:Lazy sync`
-
-### Home Manager build fails
-
-```bash
-# Check what's wrong
-home-manager switch --flake .#$(whoami) --show-trace
-
-# Clear old generations
-home-manager expire-generations "-7 days"
-nix-collect-garbage -d
 ```
 
 ## Credits
 
-- Inspired by [vim joyer](https://www.youtube.com/@vimjoyer) videos
-- [Catppuccin](https://catppuccin.com/) theme
-- [LazyVim](https://www.lazyvim.org/) neovim distribution
-- [Hyprland](https://hyprland.org/) compositor
+- [vim joyer](https://www.youtube.com/@vimjoyer) - Inspiration
+- [Catppuccin](https://catppuccin.com/) - Theme
+- [weyl-ai/nixified-ai-flake](https://github.com/weyl-ai/nixified-ai-flake) - ComfyUI Nix packaging
+- [fxy infrastructure](https://github.com/straylight-software) - GPU/ML tooling
+- [PRISM](https://github.com/justinfleek/PRISM) - Theme collection
+- [hypermodern-emacs](https://github.com/b7r6/hypermodern-emacs) - Emacs config
 
-Enjoy your riced setup!
+---
+
+**j-pyxal dots** - *the kitchen sink, riced to perfection*
