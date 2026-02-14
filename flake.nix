@@ -58,8 +58,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Opencode
-    opencode.url = "github:anomalyco/opencode";
+    # Opencode (local build - straylight-software fork synced locally)
+    opencode.url = "path:/home/justin/omega-agentic/opencode";
 
     # Note: Lean 4 is available in nixpkgs directly as pkgs.lean4
 
@@ -155,8 +155,8 @@
           # File managers
           ./modules/file-managers.nix
 
-          # Research & academic (disabled - bibtool build issues)
-          # ./modules/research.nix
+          # Research & academic
+          ./modules/research.nix
 
           # Sync & backup
           ./modules/sync.nix
@@ -174,17 +174,20 @@
           # Containers extra
           ./modules/containers-extra.nix
 
+          # Unified Python environment (must come before AI modules)
+          ./modules/python.nix
+
           # AI - Local (Ollama, Open WebUI)
-          # ./modules/ai-local.nix  # Python env conflicts - needs consolidation
+          ./modules/ai-local.nix
 
           # AI - Coding (Aider, Continue)
-          # ./modules/ai-coding.nix  # Python env conflicts - needs consolidation
+          ./modules/ai-coding.nix
 
           # ComfyUI with fxy custom nodes
-          # ./modules/comfyui.nix  # Python env conflicts - needs consolidation
+          ./modules/comfyui.nix
 
           # Speech (Whisper, TTS)
-          # ./modules/speech.nix  # Python env conflicts - needs consolidation
+          ./modules/speech.nix
 
           # NVIDIA/GPU
           ./modules/nvidia.nix

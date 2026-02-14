@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   # ============================================================================
@@ -8,19 +13,8 @@
   home.packages = with pkgs; [
     # Aider - AI pair programming
     aider-chat
-    
-    # OpenCode is already installed in home.nix
-    
-    # Python environment for AI tools
-    (python312.withPackages (ps: with ps; [
-      openai
-      anthropic
-      tiktoken
-      gitpython
-      prompt-toolkit
-      rich
-      pygments
-    ]))
+
+    # Python env consolidated in python.nix
   ];
 
   # ============================================================================
@@ -30,42 +24,42 @@
   xdg.configFile."aider/.aider.conf.yml".text = ''
     # Aider Configuration
     # https://aider.chat/docs/config.html
-    
+
     # Model settings
     model: claude-sonnet-4-20250514
     # model: gpt-4-turbo-preview
     # model: ollama/codellama:7b
-    
+
     # Editor integration
     auto-commits: false
     dirty-commits: false
-    
+
     # Display
     dark-mode: true
     pretty: true
     stream: true
     show-diffs: true
-    
+
     # Git
     git: true
     gitignore: true
-    
+
     # Code style
     encoding: utf-8
-    
+
     # Files
     auto-lint: true
     lint-cmd:
       python: ruff check --fix
       javascript: eslint --fix
       typescript: eslint --fix
-    
+
     # Chat history
     restore-chat-history: true
-    
+
     # Caching
     cache-prompts: true
-    
+
     # Ignore patterns
     # ignore-patterns:
     #   - node_modules
@@ -79,9 +73,9 @@
     text = ''
       #!/usr/bin/env bash
       # Start Aider with common configurations
-      
+
       MODEL="''${AIDER_MODEL:-claude-sonnet-4-20250514}"
-      
+
       # Check for API key
       if [ -z "$ANTHROPIC_API_KEY" ] && [ -z "$OPENAI_API_KEY" ]; then
         echo "Warning: No API key found."
@@ -90,10 +84,10 @@
         echo "For local models, use: aider --model ollama/codellama"
         echo ""
       fi
-      
+
       echo "Starting Aider with $MODEL..."
       echo ""
-      
+
       aider --model "$MODEL" "$@"
     '';
   };
@@ -128,18 +122,18 @@
         model = "deepseek-coder:6.7b";
       }
     ];
-    
+
     tabAutocompleteModel = {
       title = "Ollama - DeepSeek Coder";
       provider = "ollama";
       model = "deepseek-coder:6.7b";
     };
-    
+
     embeddingsProvider = {
       provider = "ollama";
       model = "nomic-embed-text";
     };
-    
+
     customCommands = [
       {
         name = "test";
@@ -162,38 +156,38 @@
         prompt = "Explain what this code does in detail. Include the algorithm, data structures, and any important patterns used.";
       }
     ];
-    
+
     contextProviders = [
       {
         name = "code";
-        params = {};
+        params = { };
       }
       {
         name = "docs";
-        params = {};
+        params = { };
       }
       {
         name = "diff";
-        params = {};
+        params = { };
       }
       {
         name = "terminal";
-        params = {};
+        params = { };
       }
       {
         name = "problems";
-        params = {};
+        params = { };
       }
       {
         name = "folder";
-        params = {};
+        params = { };
       }
       {
         name = "codebase";
-        params = {};
+        params = { };
       }
     ];
-    
+
     slashCommands = [
       {
         name = "commit";
@@ -208,7 +202,7 @@
         description = "Add comments to selected code";
       }
     ];
-    
+
     allowAnonymousTelemetry = false;
   };
 
@@ -242,14 +236,14 @@
     description = "AI coding assistant mode";
     systemPrompt = ''
       You are an expert software engineer and AI coding assistant.
-      
+
       Your capabilities:
       - Write clean, maintainable code following best practices
       - Debug and fix issues efficiently
       - Refactor code for better performance and readability
       - Write comprehensive tests
       - Document code clearly
-      
+
       Guidelines:
       - Be concise but thorough
       - Explain your reasoning when helpful
@@ -270,21 +264,21 @@
     text = ''
       #!/usr/bin/env bash
       # AI code review for git diff
-      
+
       DIFF=$(git diff --staged)
-      
+
       if [ -z "$DIFF" ]; then
         DIFF=$(git diff)
       fi
-      
+
       if [ -z "$DIFF" ]; then
         echo "No changes to review"
         exit 1
       fi
-      
+
       echo "Reviewing changes..."
       echo ""
-      
+
       # Use aider for review if available
       if command -v aider &> /dev/null; then
         echo "$DIFF" | aider --message "Review this diff for bugs, security issues, and improvements. Be specific and actionable." --no-auto-commits
@@ -300,16 +294,16 @@
     text = ''
       #!/usr/bin/env bash
       # Generate commit message with AI
-      
+
       DIFF=$(git diff --staged)
-      
+
       if [ -z "$DIFF" ]; then
         echo "No staged changes. Stage changes first with: git add <files>"
         exit 1
       fi
-      
+
       echo "Generating commit message..."
-      
+
       # Use opencode if available
       if command -v opencode &> /dev/null; then
         MSG=$(echo "$DIFF" | opencode --print "Generate a concise, conventional commit message for this diff. Just output the commit message, nothing else.")
@@ -341,9 +335,9 @@
     text = ''
       #!/usr/bin/env bash
       # Explain code from file or stdin
-      
+
       FILE="$1"
-      
+
       if [ -n "$FILE" ] && [ -f "$FILE" ]; then
         CODE=$(cat "$FILE")
         echo "Explaining: $FILE"
@@ -351,11 +345,11 @@
         echo "Paste code (Ctrl+D when done):"
         CODE=$(cat)
       fi
-      
+
       echo ""
       echo "=== Explanation ==="
       echo ""
-      
+
       if command -v aider &> /dev/null; then
         echo "$CODE" | aider --message "Explain this code in detail. Cover what it does, how it works, and any important patterns used." --no-auto-commits --yes
       else
@@ -374,12 +368,12 @@
     aider-local = "aider --model ollama/codellama:7b";
     aider-claude = "aider --model claude-sonnet-4-20250514";
     aider-gpt = "aider --model gpt-4-turbo-preview";
-    
+
     # Quick AI tasks
     review = "ai-review";
     aicommit = "ai-commit";
     explain = "ai-explain";
-    
+
     # OpenCode (already aliased as 'oc' in shell.nix)
     ocode = "opencode";
   };

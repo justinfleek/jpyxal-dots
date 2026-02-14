@@ -12,7 +12,6 @@
 
   home.packages = with pkgs; [
     # Speech-to-Text
-    # openai-whisper # Provided in python env below
     whisper-cpp # Whisper C++ port (faster)
 
     # Text-to-Speech
@@ -28,17 +27,7 @@
     # Voice recording
     audacity # Audio editor
 
-    # Python speech tools
-    (python312.withPackages (
-      ps: with ps; [
-        openai-whisper
-        sounddevice
-        soundfile
-        pyaudio
-        pyttsx3
-        speechrecognition
-      ]
-    ))
+    # Python env consolidated in python.nix
   ];
 
   # ============================================================================

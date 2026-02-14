@@ -39,25 +39,7 @@
     # Video encoding
     ffmpeg-full # With NVENC support
 
-    # ML/AI frameworks (with GPU)
-    (python312.withPackages (
-      ps: with ps; [
-        # PyTorch with CUDA
-        torch
-        torchvision
-        torchaudio
-
-        # TensorFlow (if needed)
-        # tensorflow
-
-        # GPU utilities
-        pynvml
-        gputil
-
-        # CUDA Python
-        cupy
-      ]
-    ))
+    # ML/AI frameworks - Python env consolidated in python.nix
   ];
 
   # ============================================================================

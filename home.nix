@@ -96,7 +96,7 @@
     ncdu
 
     # === DEVELOPMENT ===
-    pkgs-bun.bun # opencode         # Temporarily disabled - requires bun 1.3.9+ (nixpkgs has 1.3.8)
+    pkgs-bun.bun # Bun 1.3.9+ for opencode
     git
     gh
     lazygit
@@ -105,9 +105,8 @@
 
     # Languages & runtimes
     nodejs_22
-    bun
     deno
-    # python312  # Provided via nvidia.nix withPackages env
+    # python312  # Unified Python env provided via python.nix
     rustup
     go
 

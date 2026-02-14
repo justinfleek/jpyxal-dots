@@ -1229,11 +1229,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1770073757,
-        "narHash": "sha256-Vy+G+F+3E/Tl+GMNgiHl9Pah2DgShmIUBJXmbiQPHbI=",
+        "lastModified": 1770843696,
+        "narHash": "sha256-LovWTGDwXhkfCOmbgLVA10bvsi/P8eDDpRudgk68HA8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "47472570b1e607482890801aeaf29bfb749884f6",
+        "rev": "2343bbb58f99267223bc2aac4fc9ea301a155a16",
         "type": "github"
       },
       "original": {
@@ -1270,17 +1270,14 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1771012658,
-        "narHash": "sha256-xBwAc9xdOj2rLE25kwXadI9KJY58ewOfT7JLBZCDCQY=",
-        "owner": "anomalyco",
-        "repo": "opencode",
-        "rev": "d30e91738570ee9ea06ca6f2d49bdae65b0ff3ec",
-        "type": "github"
+        "lastModified": 1771028958,
+        "narHash": "sha256-gr4orsgO7jdr/lmjED7Ep6OERw8gnY9KKQ0mhIgSX1w=",
+        "path": "/home/justin/omega-agentic/opencode",
+        "type": "path"
       },
       "original": {
-        "owner": "anomalyco",
-        "repo": "opencode",
-        "type": "github"
+        "path": "/home/justin/omega-agentic/opencode",
+        "type": "path"
       }
     },
     "pre-commit-hooks": {

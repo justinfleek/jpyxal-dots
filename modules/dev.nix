@@ -25,12 +25,12 @@
     golangci-lint
     delve
 
-    # Python (base provided via nvidia.nix withPackages env)
-    # python312  # Conflicts with nvidia.nix python env
+    # Python (base provided via python.nix unified env)
+    # python312  # Conflicts with python.nix env
     # python312Packages.pip  # Conflicts
     # python312Packages.virtualenv  # Conflicts
     poetry
-    ruff
+    # ruff  # Included in python.nix env
     pyright
 
     # Node.js

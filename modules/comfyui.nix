@@ -22,41 +22,9 @@
   # 3. Integration with fxy infrastructure
 
   home.packages = with pkgs; [
-    # Python for ComfyUI
-    (python312.withPackages (
-      ps: with ps; [
-        # Core
-        torch
-        torchvision
-        torchaudio
+    # Python env consolidated in python.nix
 
-        # Diffusion
-        diffusers
-        transformers
-        accelerate
-        safetensors
-
-        # Image processing
-        pillow
-        opencv4
-
-        # ComfyUI deps
-        aiohttp
-        einops
-        kornia
-
-        # Additional ML
-        scipy
-        scikit-image
-
-        # Utils
-        tqdm
-        pyyaml
-        requests
-      ]
-    ))
-
-    # System deps
+    # System deps for ComfyUI
     git
     git-lfs
     aria2

@@ -14,48 +14,7 @@
     # Ollama - Local LLM runtime
     ollama
 
-    # Python for AI/ML
-    (python312.withPackages (
-      ps: with ps; [
-        # Core ML
-        torch
-        torchvision
-        torchaudio
-
-        # Transformers & LLMs
-        transformers
-        accelerate
-        bitsandbytes
-        sentencepiece
-        tokenizers
-        safetensors
-
-        # Image generation
-        diffusers
-
-        # Utilities
-        numpy
-        pillow
-        requests
-        tqdm
-        pyyaml
-
-        # Jupyter
-        jupyterlab
-        ipywidgets
-
-        # API clients
-        openai
-        anthropic
-
-        # Local inference
-        llama-cpp-python
-      ]
-    ))
-
-    # CUDA support - provided by nvidia.nix
-    # cudaPackages.cudatoolkit
-    # cudaPackages.cudnn
+    # Python env consolidated in python.nix
 
     # Other tools
     git-lfs # For downloading models

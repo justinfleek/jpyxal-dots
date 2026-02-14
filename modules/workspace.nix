@@ -54,7 +54,7 @@
     watchexec
 
     # === OPENCODE ===
-    # opencode  # Temporarily disabled - requires bun 1.3.9+ (nixpkgs has 1.3.8)
+    opencode # Now works with bun 1.3.9+ from pkgs-bun
   ];
 
   # ============================================================================
