@@ -116,14 +116,14 @@
           ./modules/waybar.nix
           ./modules/eww.nix
           ./modules/ghostty.nix
-          ./modules/neovim.nix
-          ./modules/shell.nix
-          ./modules/tmux.nix
+          ./shared/neovim.nix
+          ./shared/shell.nix
+          ./shared/tmux.nix
           ./modules/rofi.nix
           ./modules/dunst.nix
           ./modules/firefox.nix
-          ./modules/git.nix
-          ./modules/tools.nix
+          ./shared/git.nix
+          ./shared/tools.nix
 
           # Extended
           # ./modules/spicetify.nix  # Temporarily disabled - network fetch issue
@@ -143,7 +143,7 @@
 
           # Extra terminals and shells
           ./modules/terminals.nix
-          ./modules/nushell.nix
+          ./shared/nushell.nix
 
           # Extra editors
           ./modules/editors-extra.nix
@@ -165,7 +165,7 @@
           ./modules/browsers.nix
 
           # API tools
-          ./modules/api-tools.nix
+          ./shared/api-tools.nix
 
           # Containers extra
           # ./modules/containers-extra.nix
@@ -177,7 +177,7 @@
           ./modules/ai-local.nix
 
           # AI - Coding (Aider, Continue)
-          ./modules/ai-coding.nix
+          ./shared/ai-coding.nix
 
           # ComfyUI with fxy custom nodes
           ./modules/comfyui.nix
@@ -213,19 +213,19 @@
         modules = [
           ./wsl/home.nix
           # Shared modules (CLI-only, no GUI deps)
-          ./modules/neovim.nix
-          ./modules/shell.nix
-          ./modules/tmux.nix
-          ./modules/git.nix
-          ./modules/tools.nix
-          ./modules/nushell.nix
-          ./modules/api-tools.nix
-          ./modules/ai-coding.nix
+          ./shared/neovim.nix
+          ./shared/shell.nix
+          ./shared/tmux.nix
+          ./shared/git.nix
+          ./shared/tools.nix
+          ./shared/nushell.nix
+          ./shared/api-tools.nix
+          ./shared/ai-coding.nix
           # WSL-specific modules (no xorg/GUI deps)
-          ./wsl/modules/dev.nix
-          ./wsl/modules/webdev.nix
-          ./wsl/modules/terminals.nix
-          ./wsl/modules/editors.nix
+          ./shared/dev.nix
+          ./shared/webdev.nix
+          ./shared/terminals.nix
+          ./shared/editors.nix
         ];
       };
 
