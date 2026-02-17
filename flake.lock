@@ -1236,13 +1236,13 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1771256737,
-        "narHash": "sha256-PeXLvG+vjhbtWxT3QE9SMJ/3b1jbBrTOMJFNDhQI1+A=",
-        "path": "/home/justin/straylight/opencode",
+        "lastModified": 1771315481,
+        "narHash": "sha256-5qisSLkS/T3hZw0wMYOwn0qIbWEDD+tG9JXsEuzYGjM=",
+        "path": "/home/justin/workspace/opencode",
         "type": "path"
       },
       "original": {
-        "path": "/home/justin/straylight/opencode",
+        "path": "/home/justin/workspace/opencode",
         "type": "path"
       }
     },
