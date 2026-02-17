@@ -1238,11 +1238,11 @@
       "locked": {
         "lastModified": 1771315481,
         "narHash": "sha256-5qisSLkS/T3hZw0wMYOwn0qIbWEDD+tG9JXsEuzYGjM=",
-        "path": "/home/justin/workspace/opencode",
+        "path": "/home/justin/straylight/opencode",
         "type": "path"
       },
       "original": {
-        "path": "/home/justin/workspace/opencode",
+        "path": "/home/justin/straylight/opencode",
         "type": "path"
       }
     },

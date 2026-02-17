@@ -21,8 +21,8 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Config
-REPO_URL="https://github.com/justinfleek/home-manager.git"
-INSTALL_DIR="$HOME/.config/home-manager"
+REPO_URL="https://github.com/justinfleek/jpyxal-dots.git"
+INSTALL_DIR="$HOME/.config/jpyxal-dots"
 WORKSPACE_DIR="$HOME/workspace"
 
 # Logging

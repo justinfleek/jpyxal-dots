@@ -11,6 +11,7 @@
   # ============================================================================
 
   home.packages = with pkgs; [
+    opencode
     # Aider - AI pair programming
     aider-chat
 

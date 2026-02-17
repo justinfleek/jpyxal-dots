@@ -57,7 +57,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    opencode.url = "path:/home/justin/workspace/opencode";
+    opencode.url = "path:/home/justin/straylight/opencode";
     # Opencode (local build - straylight-software fork synced locally)
 
     # Note: Lean 4 is available in nixpkgs directly as pkgs.lean4
@@ -136,7 +136,6 @@
           ./modules/dev.nix
 
           # Workspace
-          ./modules/workspace.nix
 
           # Themes (PRISM + Cursor + hypermodern-emacs)
           ./modules/prism-themes.nix
@@ -178,7 +177,6 @@
 
           # AI - Coding (Aider, Continue)
           ./shared/ai-coding.nix
-          ./modules/workspace.nix
 
           # ComfyUI with fxy custom nodes
           ./modules/comfyui.nix
@@ -222,7 +220,6 @@
           ./shared/nushell.nix
           ./shared/api-tools.nix
           ./shared/ai-coding.nix
-          ./modules/workspace.nix
           # WSL-specific modules (no xorg/GUI deps)
           ./shared/dev.nix
           ./shared/webdev.nix
