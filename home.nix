@@ -36,15 +36,7 @@
       XDG_SESSION_TYPE = "wayland";
       GDK_BACKEND = "wayland,x11";
 
-      # Theming
-
-      FZF_DEFAULT_OPTS = lib.mkForce ''
-        --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc
-        --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8
-        --border="rounded" --border-label="" --preview-window="border-rounded"
-        --prompt="> " --marker=">" --pointer=">"
-        --separator="─" --scrollbar="│"
-      '';
+      FZF_DEFAULT_OPTS = lib.mkForce "--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 --border=rounded --preview-window=border-rounded --prompt=\"> \" --marker=\"> \" --pointer=\"> \" --separator=─ --scrollbar=│";
     };
 
     # Session path additions
